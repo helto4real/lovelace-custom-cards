@@ -1,0 +1,10 @@
+# file types
+
+# specific folders
+node_modules
+
+# specific files
+package-lock.json
+
+
+

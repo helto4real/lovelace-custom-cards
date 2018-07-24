@@ -1,0 +1,23 @@
+{
+  "name": "lovelacecards",
+  "version": "1.0.0",
+  "description": "Tomas custom lovelace cards",
+  "private": true,
+  "scripts": {
+    "serve": "polyserve",
+    "prod": "webpack --config webpack.prod.js",
+    "dev": "webpack --config webpack.dev.js",
+    "start": "npm run-script dev && npm run-script serve"
+  },
+  "author": "Tomas Hellstrom",
+  "license": "ISC",
+  "dependencies": {
+    "@polymer/lit-element": "^0.5.2"
+  },
+  "devDependencies": {
+    "polyserve": "^0.27.12",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.3"
+  }
+}
