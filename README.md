@@ -23,7 +23,9 @@ if you want to build to production custom-cards.js file, run ```npm run-script p
 5. reference card in `ui-lovelace.yaml` like this:
 ```resources:
   - url: /local/{your custom card location}/custom-cards.js?v=1.001
-    type: module``` The v=1.xxx is so you can make sure the broweser dont cache when you release new versions
+    type: module
+``` 
+The v=1.xxx is so you can make sure the broweser dont cache when you release new versions
 
 ## The structure
 
