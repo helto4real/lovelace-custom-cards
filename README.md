@@ -16,7 +16,7 @@ Setting up a dev environment and to be able to package card script is better but
 1. First setup the npm tool that comes with nodejs. You can find it here. https://www.npmjs.com/get-npm by clicking on the "Download Node.js and npm" button.
 2. while in git root folder, run `npm i -g webpack-cli` then run `npm i .` to install all dependecies (OBS: NPM DOES NOT SUPPORT UNC PATHS so make sure you are on a normal drive letter)
 3. run `npm start` to compile and run the devserver
-4. run the components html file in your browser under http://localhost:8081/dist/picture-status-element.html for example. Check your portsetting it might be different from 8081 
+4. run the components html file in your browser under http://localhost:8081/dist/picture-status-card.html for example. Check your portsetting it might be different from 8081 
 
 if you want to build to production custom-cards.js file, run ```npm run-script prod``` then copy the custom_cards.js file to /www/{your custom card location} at your Home Assistant config folder
 
@@ -27,7 +27,7 @@ if you want to build to production custom-cards.js file, run ```npm run-script p
 
 ...
   cards:
-    - type: custom:picture-status-element
+    - type: custom:picture-status-card
       entity: device_tracker.presence_tomas
       image: /local/img/presence/tomas_presence_away.jpg
       state_image:

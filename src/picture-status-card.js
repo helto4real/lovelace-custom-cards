@@ -18,7 +18,7 @@ class PictureStatusElement extends LitElement {
         
         <style>
             #container {
-                max-width: 50%;
+                max-width: 100%;
                 height: 100px;        
                 position: relative;
                 top: 0px;
@@ -119,4 +119,4 @@ class PictureStatusElement extends LitElement {
   }
 }
 
-window.customElements.define('picture-status-element', PictureStatusElement);
+window.customElements.define('picture-status-card', PictureStatusElement);
