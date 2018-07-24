@@ -9,10 +9,6 @@ import { html, LitElement } from '@polymer/lit-element';
  * Lovelace element for displaying status on a picture bottom centered on a shadow
  */
 class PictureStatusElement extends LitElement {
-
-  /*
-    Change the height of the container to change card height
-  */
   _render({ hass, config }) {
     return html`
         
@@ -52,21 +48,28 @@ class PictureStatusElement extends LitElement {
         
         `;
   }
-  
+
   /*
     Cant set background image in render method for the style, some bug prohibit that.
     So we need to set the background image after the page has rendered
   */
   _didRender(_props, _changedProps, _prevProps) {
-  this._root.querySelector('#container').style.backgroundImage = `url(${this._getStateImage()})`;
+    const container = this._root.querySelector('#container');
+    const state_div = this._root.querySelector('#state');
+
+    container.style.backgroundImage = `url(${this._getStateImage()})`;
+    container.style.height = this._card_height;
+
+    state_div.style.fontSize = this._font_size;
+    state_div.style.color = this._font_color;
   }
 
   _click() {
     this._fire('hass-more-info', { entityId: this._config.entity });
   }
-  
+
   _fire(type, detail) {
-    
+
     const event = new Event(type, {
       bubbles: true,
       cancelable: false,
@@ -84,11 +87,23 @@ class PictureStatusElement extends LitElement {
     if (this.state in this._config.state_image) {
       return this._config.state_image[this.state];
     }
-    return this._config.image; 
+    return this._config.image;
   }
 
   setConfig(config) {
     this._config = config;
+
+    if (!config.entity) {
+      throw Error('No entity defined')
+    }
+    if (!config.image) {
+      throw Error('No image defined')
+    }
+
+    this._font_size = config.font_size ? config.font_size : '1.5em';
+    this._card_height = config.card_height ? config.card_height : '150px';
+    this._font_color = config.font_color ? config.font_color : 'white';
+
   }
 
   set hass(hass) {
@@ -116,8 +131,8 @@ class PictureStatusElement extends LitElement {
     super();
     // We check if we have set the environment var to production, if so we dont load testdata
     // this environment is set in webpack.prod.js
-    if ( typeof process != typeof undefined && process.env.NODE_ENV == 'production'){return;}
-    
+    if (typeof process != typeof undefined && process.env.NODE_ENV == 'production') { return; }
+
     this.__initTests(); // Init testdata if we are i dev
   }
 
@@ -125,15 +140,15 @@ class PictureStatusElement extends LitElement {
     I use this in my development environment to make a very simple mock of config/hass objects 
   */
   __initTests() {
-    this.state = 'Some state';
-    var test_config = { entity: 'device_tracker.any', image: '/dist/img/presence/tomas_presence_away.jpg', state_image: {}, _fire(a,b) {} };
+    this.state = 'Home';
+    var test_config = { entity: 'device_tracker.any', image: '/dist/img/presence/tomas_presence_away.jpg', state_image: {} }; //, font_size: '1ev'
     test_config.state_image['Home'] = '/dist/img/presence/tomas_presence_away.jpg'
-    
+
     var test_hass = { states: [] };
     test_hass.states[test_config.entity] = "Home";
     this.setConfig(test_config);
 
-    
+
   }
 }
 
