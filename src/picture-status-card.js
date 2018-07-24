@@ -46,7 +46,7 @@ class PictureStatusElement extends LitElement {
               transform: translate(-50%, -50%);
             }
         </style>
-        <div id="container">
+        <div id="container" on-click="${() => this._click()}">
           <div class="shadow"><div id="state">${this.state}</div></div>
         </div>
         
@@ -61,6 +61,21 @@ class PictureStatusElement extends LitElement {
   this._root.querySelector('#container').style.backgroundImage = `url(${this._getStateImage()})`;
   }
 
+  _click() {
+    this._fire('hass-more-info', { entityId: this._config.entity });
+  }
+  
+  _fire(type, detail) {
+    
+    const event = new Event(type, {
+      bubbles: true,
+      cancelable: false,
+      composed: true
+    });
+    event.detail = detail || {};
+    this._root.dispatchEvent(event);
+    return event;
+  }
   /*
     Returns the state image for specific state 
     or default image if not specific state image found
@@ -111,11 +126,14 @@ class PictureStatusElement extends LitElement {
   */
   __initTests() {
     this.state = 'Some state';
-    var test_config = { entity: 'device_tracker.any', image: '/dist/img/presence/tomas_presence_away.jpg', state_image: {} };
+    var test_config = { entity: 'device_tracker.any', image: '/dist/img/presence/tomas_presence_away.jpg', state_image: {}, _fire(a,b) {} };
     test_config.state_image['Home'] = '/dist/img/presence/tomas_presence_away.jpg'
+    
     var test_hass = { states: [] };
     test_hass.states[test_config.entity] = "Home";
     this.setConfig(test_config);
+
+    
   }
 }
 
