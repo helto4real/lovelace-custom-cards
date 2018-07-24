@@ -35,7 +35,7 @@ if you want to build to production custom-cards.js file, run ```npm run-script p
         Just arrived: /local/img/presence/local/tomas_presence.jpg
 
 ``` 
-The v=1.xxx is so you can make sure the broweser dont cache when you release new versions
+The v=1.xxx is so you can make sure the broweser dont cache when you release new versions. Just increase the version when you copied a new version to hass.
 
 ## The structure
 
