@@ -24,6 +24,16 @@ if you want to build to production custom-cards.js file, run ```npm run-script p
 ```resources:
   - url: /local/{your custom card location}/custom-cards.js?v=1.001
     type: module
+
+...
+  cards:
+    - type: custom:picture-status-element
+      entity: device_tracker.presence_tomas
+      image: /local/img/presence/tomas_presence_away.jpg
+      state_image:
+        Home: /local/img/presence/tomas_presence.jpg
+        Just arrived: /local/img/presence/local/tomas_presence.jpg
+
 ``` 
 The v=1.xxx is so you can make sure the broweser dont cache when you release new versions
 
