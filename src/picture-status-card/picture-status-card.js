@@ -60,8 +60,8 @@ class PictureStatusElement extends LitElement {
     container.style.backgroundImage = `url(${this._getStateImage()})`;
     container.style.height = this._card_height;
 
-    
-    this._font_size = this._config.font_size ? this._config.font_size : `${container.offsetHeight/6}px`;
+
+    this._font_size = this._config.font_size ? this._config.font_size : `calc(${this._card_height}/6)`;
 
     state_div.style.fontSize = this._font_size;
     state_div.style.color = this._font_color;
@@ -103,7 +103,7 @@ class PictureStatusElement extends LitElement {
       throw Error('No image defined')
     }
 
-    this._card_height = config.card_height ? config.card_height : '100px';
+    this._card_height = config.card_height ? config.card_height : '200px';
     this._font_color = config.font_color ? config.font_color : 'white';
 
   }
