@@ -38,7 +38,7 @@ class PictureStatusElement extends LitElement {
               top: 50%;
               left: 50%;
               color: white;
-              font-size: 0.8em;
+              font-size: 100%;
               transform: translate(-50%, -50%);
             }
         </style>
@@ -59,6 +59,9 @@ class PictureStatusElement extends LitElement {
 
     container.style.backgroundImage = `url(${this._getStateImage()})`;
     container.style.height = this._card_height;
+
+    
+    this._font_size = this._config.font_size ? this._config.font_size : `${container.offsetHeight/6}px`;
 
     state_div.style.fontSize = this._font_size;
     state_div.style.color = this._font_color;
@@ -100,8 +103,7 @@ class PictureStatusElement extends LitElement {
       throw Error('No image defined')
     }
 
-    this._font_size = config.font_size ? config.font_size : '1.5em';
-    this._card_height = config.card_height ? config.card_height : '150px';
+    this._card_height = config.card_height ? config.card_height : '100px';
     this._font_color = config.font_color ? config.font_color : 'white';
 
   }
