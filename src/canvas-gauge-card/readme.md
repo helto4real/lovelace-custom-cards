@@ -75,7 +75,7 @@ Use the javascript names of properties from the examples at https://canvas-gauge
         highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
         borders: false   
 ```
-### Example 2, simple half gauge with shadow text
+### Example 3, simple full gauge with shadow text
 <img src="docs/screen_sample3.png"  width="234" height="221"/>
 
 **ui-lovelace.yaml:**
