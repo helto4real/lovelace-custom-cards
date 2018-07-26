@@ -1,10 +1,10 @@
 # canvas-gauge-card
 This card allows you to use the awesome gauges at https://canvas-gauges.com/ in your lovelace GUI. This is still a very early and untested alpha version. Tested only on chrome and safari browsers. 
 
-If you want to support the developer, please support the libdevs of the canvas-gauges.
+If you want to support the developer, please support the lib devs of the canvas-gauges.
 
 ## Screens 
-Here is a som different screens from my own setup. But the possibilites in your own look and feel are great.
+Here is a some different screens from my own setup. But the possibilites to make your own look and feel are great.
 
 <a href="docs/screen1.png" target="_blank"><img src="docs/screen1.png"  width="254" height="204"/></a>
 <a href="docs/screen2.png" target="_blank"><img src="docs/screen2.png"  width="313" height="239"/></a>
@@ -19,7 +19,7 @@ resources:
 ```
 Configure the card properties.
 
-Skip `name`property if you dont want the shadow. Set height of the shadow with the property `shadow_height`
+Skip `name`property if you dont want the name with the shadow area to show.
 
 Use the javascript names of properties from the examples at https://canvas-gauges.com/documentation/examples/. Click on an example that you like, check the JS version and copy the properties to the lovelace yaml file. Just remove the ',' after copy from site. Here is an example from one of my config for better clarity.
 
@@ -90,7 +90,7 @@ Some of the properties that could be set. *italic* is not mandatory.
 | *font_size* | size of name, leave out it will be dynamic
 | *shadow_height* | xx% of total height is shadow height
 
-For a complete documentation of available properties, pleas see https://canvas-gauges.com/documentation/user-guide/configuration
+For a complete documentation of available properties, please see https://canvas-gauges.com/documentation/user-guide/configuration
 
 ## Credits
 - [Mikhus, canvas guages](https://github.com/Mikhus/canvas-gauges)
