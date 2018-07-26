@@ -7,7 +7,7 @@ If you want to support the developer, please support the lib devs of the canvas-
 Here is a some different screens from my own setup. But the possibilites to make your own look and feel are great.
 
 <a href="docs/screen1.png" target="_blank"><img src="docs/screen1.png"  width="254" height="204"/></a>
-<a href="docs/screen2.png" target="_blank"><img src="docs/screen2.png"  width="313" height="239"/></a>
+<a href="docs/screen2.png" target="_blank"><img src="docs/screen2.png"  width="250" height="244"/></a>
 
 ## Usage
 Download the files `canvas-gauge-card.js` and `gauge.min.js` to your home assistant config. Add a module link to the `canvas-gauge-card.js` file. The link needs to be the same as where you put it.
