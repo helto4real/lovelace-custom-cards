@@ -90,7 +90,7 @@ Some of the properties that could be set. *italic* is not mandatory.
 | *font_size* | size of name, leave out it will be dynamic
 | *shadow_height* | xx% of total height is shadow height
 
-Rest see https://canvas-gauges.com/documentation/user-guide/configuration
+For a complete documentation of available properties, pleas see https://canvas-gauges.com/documentation/user-guide/configuration
 
 ## Credits
 - [Mikhus, canvas guages](https://github.com/Mikhus/canvas-gauges)
