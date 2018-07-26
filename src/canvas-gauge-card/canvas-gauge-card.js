@@ -22,10 +22,10 @@
  * SOFTWARE.
  */
 
-//import "./gauge.min.js"
+import "./gauge.min.js"
 
 // Use this when building to prod package
-import "canvas-gauges";
+//import "canvas-gauges";
 
 /**
  * `canvas-gauge-card`
@@ -142,7 +142,7 @@ class CanvasGaugeCard extends HTMLElement {
                 gauge.options[key] = this.config.gauge[key];
             }
         }
-       
+
         elemInnerContainer.appendChild(elemCanvas);
 
         elemContainer.appendChild(elemInnerContainer);
@@ -160,7 +160,7 @@ class CanvasGaugeCard extends HTMLElement {
             elemShadow.appendChild(elemState);
             elemContainer.appendChild(elemShadow);
         }
-        
+
         elemContainer.onclick = this._click.bind(this);
         this.shadowRoot.appendChild(elemContainer);
 
@@ -218,7 +218,7 @@ class CanvasGaugeCard extends HTMLElement {
         this.config = config;
 
         // Fix initbug from the canvas lib that shows borders even if set to false
-        if (typeof config.gauge.borders != typeof undefined  && config.gauge.borders===false){
+        if (typeof config.gauge.borders != typeof undefined && config.gauge.borders === false) {
             config.gauge['borderShadowWidth'] = 0;
             config.gauge['borderOuterWidth'] = 0;
             config.gauge['borderMiddleWidth'] = 0;
@@ -268,10 +268,10 @@ class CanvasGaugeCard extends HTMLElement {
             }
         ];
         test_config.gauge['colorPlate'] = '#fff';
- //       test_config.gauge['borderShadowWidth'] = 0;
- //       test_config.gauge['borderOuterWidth'] = 0;
- //       test_config.gauge['borderMiddleWidth'] = 0;
- //       test_config.gauge['borderInnerWidth'] = 0;
+        //       test_config.gauge['borderShadowWidth'] = 0;
+        //       test_config.gauge['borderOuterWidth'] = 0;
+        //       test_config.gauge['borderMiddleWidth'] = 0;
+        //       test_config.gauge['borderInnerWidth'] = 0;
         test_config.gauge['borders'] = false;
         test_config.gauge['needleType'] = 'arrow';
         test_config.gauge['needleWidth'] = 2;
