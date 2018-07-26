@@ -21,63 +21,91 @@ Configure the card properties.
 
 Skip `name`property if you dont want the name with the shadow area to show.
 
-Use the javascript names of properties from the examples at https://canvas-gauges.com/documentation/examples/. Click on an example that you like, check the JS version and copy the properties to the lovelace yaml file. Just remove the ',' after copy from site. Here is an example from one of my config for better clarity.
+Use the javascript names of properties from the examples at https://canvas-gauges.com/documentation/examples/. Click on an example that you like, check the JS version and copy the properties to the lovelace yaml file. Just remove the ',' after copy from site. 
+
+### Example 1, simple half gauge
+<img src="docs/screen_sample_2.png"  width="230" height="130"/>
+
+**ui-lovelace.yaml:**
 
 ```yaml
-- type: custom:canvas-gauge-card
-    entity: sensor.processor_use
-    name: Processor (%)
-    shadow_height: 10%
-    font_size: 1em
-    gauge:
+    - type: custom:canvas-gauge-card
+      entity: sensor.processor_use
+      card_height: 125
+      gauge:
+        type: "radial-gauge"
+        title: Processor (%)
+        width: 220
+        height: 220
+        minValue: 0
+        maxValue: 100
+        startAngle: 30
+        ticksAngle: 180
+        valueBox: false
+        majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+        minorTicks: 2
+        strokeTicks: true
+        highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
+        borders: false
+```
+### Example 2, simple half gauge witch shadow text
+<img src="docs/screen_sample_1.png"  width="242" height="165"/>
+
+**ui-lovelace.yaml:**
+
+```yaml
+    - type: custom:canvas-gauge-card
+      entity: sensor.processor_use
+      name: Processor (%)
+      card_height: 145
+      shadow_height: 15%
+      font_size: 1em
+      gauge:
         type: "radial-gauge"
         width: 220
         height: 220
-        units: "%"
+        minValue: 0
+        maxValue: 100
+        startAngle: 90
+        ticksAngle: 180
+        valueBox: false
+        majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+        minorTicks: 2
+        strokeTicks: true
+        highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
+        borders: false   
+```
+### Example 2, simple half gauge witch shadow text
+<img src="docs/screen_sample_3.png"  width="234" height="221"/>
+
+**ui-lovelace.yaml:**
+
+```yaml
+    - type: custom:canvas-gauge-card
+      entity: sensor.processor_use
+      name: Processor (%)
+      card_height: 210
+      shadow_height: 12%
+      font_size: 1em
+      gauge:
+        type: "radial-gauge"
+        width: 220
+        height: 220
         minValue: 0
         maxValue: 100
         startAngle: 40
         ticksAngle: 280
-        valueBox: true
-        majorTicks: [
-            "0",
-            "10",
-            "20",
-            "30",
-            "40",
-            "50",
-            "60",
-            "70",
-            "80",
-            "90",
-            "100",
-        ]
+        valueBox: false
+        units: "%"
+        majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
         minorTicks: 2
         strokeTicks: true
-        highlights: [
-            {
-                "from": 80,
-                "to": 100,
-                "color": "rgba(200, 50, 50, .75)"
-            }
-        ]
-        colorPlate: "#ddd"
-        borderShadowWidth: 0
+        highlights: [{"from": 80, "to": 100,"color": "rgba(200, 50, 50, .75)"}]
         borders: false
-        needleType: "arrow"
-        needleWidth: 2
-        needleCircleSize: 7
-        needleCircleOuter: true
-        needleCircleInner: false
-        animationDuration: 1500
-        animationRule: "linear"
-        colorBorderOuter: "#fff"
-        colorBorderOuterEnd: "#ddd"
-        colorBorderMiddle: "#ddd"
-        colorBorderMiddleEnd: "#ddd"
-        colorBorderInner: "#ddd"
-        colorBorderInnerEnd: "#ddd"     
+   
 ```
+
+### Properties
 Some of the properties that could be set. *italic* is not mandatory.
 
 | Property |Description
@@ -87,6 +115,7 @@ Some of the properties that could be set. *italic* is not mandatory.
 | type | `"radial-gauge"` or `"linear-gauge"`
 | width | width of the gauge
 | height | height of the gauge
+| *card_height*| the actual height of the card, set to smaller value than gauge height if using a half guage. Not use if using a full circle gauge.
 | *font_size* | size of name, leave out it will be dynamic
 | *shadow_height* | xx% of total height is shadow height
 
