@@ -1,7 +1,7 @@
 /*!
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Tomas Hellström 
+ * Copyright (c) 2017 Tomas Hellström  (https://github.com/helto4real/lovelace-custom-cards)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,9 +24,9 @@
 
 
 // Use when dev outside HASS and build using npm
-import { html, LitElement } from '@polymer/lit-element';
+//import { html, LitElement } from '@polymer/lit-element';
 // Use when deploy directly to HASS without complie and stuff. 
-//import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 /**
  * `picture-status-element`

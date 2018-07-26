@@ -1,7 +1,7 @@
 /*!
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Tomas Hellström 
+ * Copyright (c) 2017 Tomas Hellström (https://github.com/helto4real/lovelace-custom-cards)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,9 +22,10 @@
  * SOFTWARE.
  */
 
-//import "./gauge.min.js";
+import "./gauge.min.js";
 
-import "canvas-gauges";
+// Use this when building to prod package
+//import "canvas-gauges";
 
 /**
  * `canvas-gauge-card`
