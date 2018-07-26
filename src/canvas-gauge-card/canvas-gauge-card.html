@@ -3,10 +3,36 @@
 <body>
     <script type="module" src="canvas-gauge-card.js" crossorigin></script>
 
+    <script type="text/javascript" src="gauge.min.js" crossorigin></script>
     
     <canvas-gauge-card></canvas-gauge-card>
  
-   
+  <canvas data-type="radial-gauge"
+  data-width="300"
+  data-height="300"
+  data-units="Km/h"
+  data-min-value="0"
+  data-start-angle="90"
+  data-ticks-angle="180"
+  data-value-box="false"
+  data-max-value="220"
+  data-major-ticks="0,20,40,60,80,100,120,140,160,180,200,220"
+  data-minor-ticks="2"
+  data-stroke-ticks="true"
+  data-highlights='[
+      {"from": 160, "to": 220, "color": "rgba(200, 50, 50, .75)"}
+  ]'
+  data-color-plate="#fff"
+  data-border-shadow-width="0"
+  data-borders="false"
+  data-needle-type="arrow"
+  data-needle-width="2"
+  data-needle-circle-size="7"
+  data-needle-circle-outer="true"
+  data-needle-circle-inner="false"
+  data-animation-duration="1500"
+  data-animation-rule="linear"
+></canvas>
 </body>
 
 </html>

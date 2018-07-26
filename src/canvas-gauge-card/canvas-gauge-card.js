@@ -51,8 +51,6 @@ import "./gauge.min.js";
 class CanvasGaugeCard extends HTMLElement {
     constructor() {
         super();
-        console.error("CONSTRUCTOR!!!");
-        
         this.attachShadow({ mode: 'open' });
         this.__initTests();
     }
@@ -66,7 +64,7 @@ class CanvasGaugeCard extends HTMLElement {
         elemContainer.width = this.config.gauge['width'];
         elemContainer.height = this.config.gauge['height'];
 
-        const shadowHeight = (this.config.shadow_height)? this.config.shadow_height : '7%';
+        const shadowHeight = (this.config.shadow_height) ? this.config.shadow_height : '7%';
         // The styles
         const style = `
             <style>
@@ -132,21 +130,23 @@ class CanvasGaugeCard extends HTMLElement {
             }
         }
         gauge.draw();
+
         elemContainer.appendChild(elemCanvas);
 
-        // <div class="shadow"><div id="state">${this.state}</div></div>
-        var elemShadow = document.createElement('div');
-        elemShadow.className = 'shadow';
-        var elemState = document.createElement('div');
-        elemState.id = 'state';
-        // Automatic font resize or set one
-        var font_size = this.config.font_size ? this.config.font_size : `calc(${this.config.gauge['height']}px/22)`;
-        elemState.style.fontSize = font_size;
-        elemState.innerText = this.config.name;
+        if (this.config.name) {
+            var elemShadow = document.createElement('div');
+            elemShadow.className = 'shadow';
 
-        elemShadow.appendChild(elemState);
-        elemContainer.appendChild(elemCanvas);
-        elemContainer.appendChild(elemShadow);
+            var elemState = document.createElement('div');
+            elemState.id = 'state';
+            // Automatic font resize or set one
+            var font_size = this.config.font_size ? this.config.font_size : `calc(${this.config.gauge['height']}px/22)`;
+            elemState.style.fontSize = font_size;
+            elemState.innerText = this.config.name;
+
+            elemShadow.appendChild(elemState);
+            elemContainer.appendChild(elemShadow);
+        }
 
         elemContainer.onclick = this._click.bind(this);
         this.shadowRoot.appendChild(elemContainer);
@@ -219,38 +219,47 @@ class CanvasGaugeCard extends HTMLElement {
         var test_config =
         {
             entity: 'sensor.temp',
-            name: 'temp',
+            name: undefined,
             gauge: {}
         }; //, font_size: '1ev'
 
-        test_config.gauge['type'] = 'linear-gauge';
-        test_config.gauge['width'] = '120';
-        test_config.gauge['height'] = '400';
-        test_config.gauge['units'] = '°C';
-        test_config.gauge['min-value'] = '0';
-        test_config.gauge['start-angle'] = '90';
-        test_config.gauge['ticks-angle'] = '180';
-        test_config.gauge['value-box'] = 'false';
-        test_config.gauge['max-value'] = '220';
-        test_config.gauge['major-ticks'] = '0,20,40,60,80,100,120,140,160,180,200,220';
-        test_config.gauge['minor-ticks'] = '2';
-        test_config.gauge['stroke-ticks'] = 'true';
-        test_config.gauge['highlights'] = '\'[ {\"from\": 100, \"to\": 220, \"color\": \"rgba(200, 50, 50, .75)\"} ]\'';
-        test_config.gauge['color-plate'] = '#fff';
-        test_config.gauge['border-shadow-width'] = '0';
-        test_config.gauge['borders'] = 'false';
-        test_config.gauge['needle-type'] = 'arrow';
-        test_config.gauge['needle-width'] = '2';
-        test_config.gauge['needle-circle-size'] = '7';
-        test_config.gauge['needle-circle-outer'] = 'true';
-        test_config.gauge['needle-circle-inner'] = 'false';
-        test_config.gauge['animation-duration'] = '1500';
-        test_config.gauge['animation-rule'] = 'linear';
-        test_config.gauge['bar-width'] = '10';
+        test_config.gauge['type'] = 'radial-gauge';
+        test_config.gauge['title'] = 'radial-gauge';
+        test_config.gauge['width'] = 300;
+        test_config.gauge['height'] = 300;
+        test_config.gauge['units'] = 'Km/h';
+        test_config.gauge['minValue'] = 0;
+        test_config.gauge['maxValue'] = 220;
+        test_config.gauge['startAngle'] = 90;
+        test_config.gauge['ticksAngle'] = 180;
+        test_config.gauge['valueBox'] = false;
+        test_config.gauge['majorTicks'] = [0,20,40,60,80,100,120,140,160,180,200,220];
+        test_config.gauge['minorTicks'] = 2;
+        test_config.gauge['strokeTicks'] = true;
+        test_config.gauge['highlights'] = [ 
+            {
+                "from": 160, 
+                "to": 220, 
+                "color": "rgba(200, 50, 50, .75)"
+            } 
+        ];
+        test_config.gauge['colorPlate'] = '#fff';
+        test_config.gauge['borderShadowWidth'] = 0;
+        test_config.gauge['borderOuterWidth'] = 0;
+        test_config.gauge['borderMiddleWidth'] = 0;
+        test_config.gauge['borderInnerWidth'] = 0;
+        test_config.gauge['borders'] = false;
+        test_config.gauge['needleType'] = 'arrow';
+        test_config.gauge['needleWidth'] = 2;
+        test_config.gauge['needleCircleSize'] = 7;
+        test_config.gauge['needleCircleOuter'] = true;
+        test_config.gauge['needleCircleInner'] = false;
+        test_config.gauge['animationDuration'] = 1500;
+        test_config.gauge['animationRule'] = 'linear';
         test_config.gauge['value'] = '50';
 
         var test_hass = { states: [] };
-        test_hass.states[test_config.entity] = {state: "15"};
+        test_hass.states[test_config.entity] = { state: "15" };
         this.setConfig(test_config);
 
         this.hass = test_hass;
