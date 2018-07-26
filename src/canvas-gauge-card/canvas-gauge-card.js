@@ -22,10 +22,10 @@
  * SOFTWARE.
  */
 
-//import "./gauge.min.js";
+import "./gauge.min.js";
 
 // Use this when building to prod package
-import "canvas-gauges";
+//import "canvas-gauges";
 
 /**
  * `canvas-gauge-card`
