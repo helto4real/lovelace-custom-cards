@@ -29,7 +29,7 @@
 import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 /**
- * `picture-status-element`
+ * `picture-status-card`
  * Lovelace element for displaying status on a picture bottom centered on a shadow
  */
 class PictureStatusCard extends LitElement {
