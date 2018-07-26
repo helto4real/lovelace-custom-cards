@@ -24,7 +24,7 @@ Skip `name`property if you dont want the name with the shadow area to show.
 Use the javascript names of properties from the examples at https://canvas-gauges.com/documentation/examples/. Click on an example that you like, check the JS version and copy the properties to the lovelace yaml file. Just remove the ',' after copy from site. 
 
 ### Example 1, simple half gauge
-<img src="docs/screen_sample_2.png"  width="230" height="130"/>
+<img src="docs/screen_sample2.png"  width="230" height="130"/>
 
 **ui-lovelace.yaml:**
 
@@ -49,7 +49,7 @@ Use the javascript names of properties from the examples at https://canvas-gauge
         borders: false
 ```
 ### Example 2, simple half gauge witch shadow text
-<img src="docs/screen_sample_1.png"  width="242" height="165"/>
+<img src="docs/screen_sample1.png"  width="242" height="165"/>
 
 **ui-lovelace.yaml:**
 
@@ -76,7 +76,7 @@ Use the javascript names of properties from the examples at https://canvas-gauge
         borders: false   
 ```
 ### Example 2, simple half gauge witch shadow text
-<img src="docs/screen_sample_3.png"  width="234" height="221"/>
+<img src="docs/screen_sample3.png"  width="234" height="221"/>
 
 **ui-lovelace.yaml:**
 
