@@ -10,9 +10,16 @@ Here is a som different screens from my own setup. But the possibilites in your 
 <a href="docs/screen2.png" target="_blank"><img src="docs/screen2.png"  width="313" height="239"/></a>
 
 ## Usage
-Download the files `canvas-gauge-card.js` and `gauge.min.js` to your home assistant config.
+Download the files `canvas-gauge-card.js` and `gauge.min.js` to your home assistant config. Add a module link to the `canvas-gauge-card.js` file. The link needs to be the same as where you put it.
+Example:
+```yaml
+resources:
+  - url: /local/custom_cards/canvas-gauge-card.js
+    type: module
+```
+Configure the card properties.
 
-Skip `name`property if you dont want the shadow or set height of the shadow with the property `shadow_height`
+Skip `name`property if you dont want the shadow. Set height of the shadow with the property `shadow_height`
 
 Use the javascript names of properties from the examples at https://canvas-gauges.com/documentation/examples/. Click on an example that you like, check the JS version and copy the properties to the lovelace yaml file. Just remove the ',' after copy from site. Here is an example from one of my config for better clarity.
 
@@ -71,6 +78,18 @@ Use the javascript names of properties from the examples at https://canvas-gauge
         colorBorderInner: "#ddd"
         colorBorderInnerEnd: "#ddd"     
 ```
+Some of the properties that could be set. *italic* is not mandatory.
+|Important props|Description|
+|:---------|---------|
+|entity|your sensor|
+|name|shows the name in shadow remove to hide it|
+|type|"radial-gauge" or "linear-gauge"|
+|width|width of the gauge|
+|height|height of the gauge|
+|*font_size*| size of name, leave out it will be dynamic|
+|*shadow_height*| xx% of total height is shadow height|
+
+Rest see https://canvas-gauges.com/documentation/user-guide/configuration
 
 ## Credits
 - [Mikhus, canvas guages](https://github.com/Mikhus/canvas-gauges)

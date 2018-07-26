@@ -91,7 +91,7 @@ const F=(e,...t)=>new m(e,t,"html",H),H=(e,t,i)=>{if("attribute"===t.type){if("o
 /*!
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Tomas Hellström 
+ * Copyright (c) 2017 Tomas Hellström  (https://github.com/helto4real/lovelace-custom-cards)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -150,7 +150,7 @@ const F=(e,...t)=>new m(e,t,"html",H),H=(e,t,i)=>{if("attribute"===t.type){if("o
 /*!
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Tomas Hellström 
+ * Copyright (c) 2017 Tomas Hellström (https://github.com/helto4real/lovelace-custom-cards)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
