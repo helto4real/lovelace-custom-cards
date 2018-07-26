@@ -79,8 +79,9 @@ Use the javascript names of properties from the examples at https://canvas-gauge
         colorBorderInnerEnd: "#ddd"     
 ```
 Some of the properties that could be set. *italic* is not mandatory.
+
 | Property |Description
-|:---------|-----------|
+|:---------|-----------
 | entity | your sensor
 | name | shows the name in shadow remove to hide it
 | type | `"radial-gauge"` or `"linear-gauge"`
