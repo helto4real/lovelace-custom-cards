@@ -79,15 +79,15 @@ Use the javascript names of properties from the examples at https://canvas-gauge
         colorBorderInnerEnd: "#ddd"     
 ```
 Some of the properties that could be set. *italic* is not mandatory.
-|Important props|Description|
-|:---------|---------|
-|entity|your sensor|
-|name|shows the name in shadow remove to hide it|
-|type|"radial-gauge" or "linear-gauge"|
-|width|width of the gauge|
-|height|height of the gauge|
-|*font_size*| size of name, leave out it will be dynamic|
-|*shadow_height*| xx% of total height is shadow height|
+| Property |Description
+|:---------|-----------|
+| entity | your sensor
+| name | shows the name in shadow remove to hide it
+| type | `"radial-gauge"` or `"linear-gauge"`
+| width | width of the gauge
+| height | height of the gauge
+| *font_size* | size of name, leave out it will be dynamic
+| *shadow_height* | xx% of total height is shadow height
 
 Rest see https://canvas-gauges.com/documentation/user-guide/configuration
 
