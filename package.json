@@ -10,12 +10,14 @@
     "start": "npm run-script dev && npm run-script serve"
   },
   "author": "Tomas Hellstrom",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@polymer/lit-element": "^0.5.2"
+    "@polymer/lit-element": "^0.5.2",
+    "canvas-gauges": "^2.1.5"
   },
   "devDependencies": {
     "polyserve": "^0.27.12",
+    "script-loader": "^0.7.2",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0",
     "webpack-merge": "^4.1.3"
