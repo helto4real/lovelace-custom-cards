@@ -25,7 +25,7 @@
   /**
   * DO NOT USE THIS FILE IF USING SINGLE CARDS, USE THE VERSION UNDER 'dist' CATALOG!!!!
   */
- 
+
 import "./gauge.min.js";
 
 /**
@@ -50,11 +50,6 @@ import "./gauge.min.js";
     - See http://sss for docs
  */
 class CanvasGaugeCard extends HTMLElement {
-    constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
-        this.__initTests();
-    }
     /**
      * Renders the card 
      */
@@ -232,6 +227,17 @@ class CanvasGaugeCard extends HTMLElement {
         return 2;
     }
 
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+
+        // We check if we have set the environment var to 'development', if so we load testdata
+        // this environment is set in webpack.dev.js
+        if (typeof process != typeof undefined && process.env.NODE_ENV == 'development') {
+            this.__initTests();
+        }
+    }
+
     /** 
      * Init testdata
      * I use this in my development environment to make a very simple mock of config/hass objects 
@@ -269,10 +275,6 @@ class CanvasGaugeCard extends HTMLElement {
             }
         ];
         test_config.gauge['colorPlate'] = '#fff';
-        //       test_config.gauge['borderShadowWidth'] = 0;
-        //       test_config.gauge['borderOuterWidth'] = 0;
-        //       test_config.gauge['borderMiddleWidth'] = 0;
-        //       test_config.gauge['borderInnerWidth'] = 0;
         test_config.gauge['borders'] = false;
         test_config.gauge['needleType'] = 'arrow';
         test_config.gauge['needleWidth'] = 2;

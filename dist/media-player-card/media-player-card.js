@@ -204,11 +204,11 @@ class MediaPlayerCard extends LitElement {
 
   constructor() {
     super();
-    // We check if we have set the environment var to production, if so we dont load testdata
-    // this environment is set in webpack.prod.js
-    if (typeof process != typeof undefined && process.env.NODE_ENV == 'production') { return; }
-
-    this.__initTests(); // Init testdata if we are i dev
+    // We check if we have set the environment var to 'development', if so we load testdata
+    // this environment is set in webpack.dev.js
+    if (typeof process != typeof undefined && process.env.NODE_ENV == 'development') {
+      this.__initTests();
+    } 
 
   }
 
