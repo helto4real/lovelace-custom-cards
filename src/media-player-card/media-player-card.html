@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        /* default hass fonts  */
+        html {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: 'Roboto', 'Noto', sans-serif;
+        }
+    </style>
+    <!-- <script type="text/javascript">
+        function do_load() {
+            var elem = document.getElementById("container");
+            elem.style.backgroundImage = "url('img/tv.png')";
+
+            var elemImage = document.getElementById("movie-image");
+            elemImage.style.backgroundImage = "url('img/movie_test.png')";
+        }
+
+    </script> -->
+</head>
+
+<!-- <body onload="do_load()"> -->
+<body>
+    <script type="module" src="media-player-card.js" ></script>
+    <style>
+        .card_size {
+       
+            position: absolute;
+        }
+    </style>
+    <div >
+        <media-player-card></media-player-card>
+    </div>
+
+    <!-- <style>
+        #container {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            top: 0px;
+            overflow: hidden;
+            text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            font-family: 'Roboto'
+        }
+
+        #movie-image {
+            position: relative;
+            width: 97.4%;
+            height: 73.4%;
+            left: 1.37%;
+            top: 3.5%;
+            background-color: white;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #media-info {
+            width: 99.92%;
+            height: 30%;
+            left: 0.1%;
+            top: 70%;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+
+        }
+
+        #entity {
+            position: relative;
+            width: 100%;
+            top: 11%;
+            left: 2.3%;
+            color: white;
+            text-align: left;
+            font-size: 80%;
+        }
+
+        #media-title {
+            position: relative;
+            width: 100%;
+            top: 22%;
+            left: 2.3%;
+            text-align: left;
+            color: white;
+            font-weight: bold;
+            font-size: 90%;
+        }
+
+        #app-name {
+            position: relative;
+            width: 100%;
+            text-align: left;
+            top: 20%;
+            left: 2.3%;
+            color: white;
+            font-size: 80%;
+        }
+    </style>
+    <div id="container" on-click="${() => this._click()}">
+        <div id="movie-image">
+            <div id="media-info">
+                <div id="entity">TV Nere</div>
+
+                <div id="media-title">Castle rock</div>
+                <div id="app-name">HBO Nordic</div>
+            </div>
+        </div>
+    </div> -->
+
+
+</body>
+
+</html>

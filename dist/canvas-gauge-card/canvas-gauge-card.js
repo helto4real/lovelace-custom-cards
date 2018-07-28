@@ -26,7 +26,7 @@
   * DO NOT USE THIS FILE IF USING SINGLE CARDS, USE THE VERSION UNDER 'dist' CATALOG!!!!
   */
  
-import "canvas-gauges";
+import "./gauge.min.js";
 
 /**
  * `canvas-gauge-card`

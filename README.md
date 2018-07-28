@@ -1,15 +1,14 @@
 # Custom cards development
 I use this separate development environment to develop custom cards for lovelace. Please check my repository https://github.com/helto4real/hassio för my Home Assistant configuration
 
-## Use the source js directly in HASS
-If you don't want to setup a npm dev environmnet (recommend you do) you can copy individual card files under /src. to your hass card folder. First change the following lines on top of source file to:
-```
-// Use when dev outside HASS and build using npm
-//import { html, LitElement } from '@polymer/lit-element';
-// Use when deploy directly to HASS without complie and stuff. 
-import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
-```
-Setting up a dev environment and to be able to package card script is better but if you want the easy way out... be my guest :)
+## Usage
+All cards are built in the package dist/custom-cards.js, just copy that file and reference in the ui-lovelace.yaml. Please note that some cards require images to work. Check the folders and copy the images in that folder. 
+
+All cards can be used stand-alone under `dist/[cardname-card]` directory. Just copy the whole directory to hass. 
+
+**DO NOT COPY  CARDS UNDER `/src` FOR SINGLE USAGE!! USE dist/[cardname-card]` CAUSE IMPORTS WONT WORK OUTSIDE WEBPACK** 
+
+**See individual readme.md for details.**
 
 ## Setup the dev environment
 
@@ -41,5 +40,5 @@ The v=1.xxx is so you can make sure the broweser dont cache when you release new
 
 - webpack.*.js, contains the package information for dev and prod builds for webpack
 - package.json, the package information, scripts, etc.
-- src/*, here are all the card source files and corresponding test HTML file
-- dist/*, here are the built merged source scripts that can be used in Home assistant (if prodbuild)
+- src/*, here are all the card source files and corresponding test HTML file. All cards use packages 
+- dist/*, here are the built merged source scripts that can be used in Home assistant. **This is from where you copy files to use in Hass!!!**

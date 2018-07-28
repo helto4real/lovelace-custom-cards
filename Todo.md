@@ -1,1 +1,0 @@
-- "canvas-gauges": "^2.1.5" package not working when package with the file. Use the gauge.min.js separately now

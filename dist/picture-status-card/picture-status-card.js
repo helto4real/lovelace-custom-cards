@@ -27,7 +27,7 @@
   */
 
 // Use when dev outside HASS and build using npm
-import { html, LitElement } from '@polymer/lit-element';
+import { html, LitElement } from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 /**
  * `picture-status-card`
