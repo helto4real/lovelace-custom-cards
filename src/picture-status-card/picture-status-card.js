@@ -156,12 +156,13 @@ class PictureStatusCard extends LitElement {
 
   constructor() {
     super();
-    // We check if we have set the environment var to 'development', if so we load testdata
-    // this environment is set in webpack.dev.js
-    if (typeof process != typeof undefined && process.env.NODE_ENV == 'development') {
-      this.__initTests();
-    } 
+    // ** START FOR TEST
+    if (typeof process != typeof undefined && process.env.NODE_ENV == 'production') {return;} 
+    this.__initTests();
+    // ** END FOR TEST
   }
+
+  // ** START FOR TEST
 
   /*
     I use this in my development environment to make a very simple mock of config/hass objects 
@@ -174,9 +175,8 @@ class PictureStatusCard extends LitElement {
     var test_hass = { states: [] };
     test_hass.states[test_config.entity] = "Home";
     this.setConfig(test_config);
-
-
   }
+  // ** END FOR TEST
 }
 
 window.customElements.define('picture-status-card', PictureStatusCard);

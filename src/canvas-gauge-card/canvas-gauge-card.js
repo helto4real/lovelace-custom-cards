@@ -230,13 +230,13 @@ class CanvasGaugeCard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-
-        // We check if we have set the environment var to 'development', if so we load testdata
-        // this environment is set in webpack.dev.js
-        if (typeof process != typeof undefined && process.env.NODE_ENV == 'development') {
-            this.__initTests();
-        }
+        // ** START FOR TEST
+        if (typeof process != typeof undefined && process.env.NODE_ENV == 'production') {return;} 
+        this.__initTests();
+        // ** END FOR TEST
     }
+
+    // ** START FOR TEST
 
     /** 
      * Init testdata
@@ -291,6 +291,7 @@ class CanvasGaugeCard extends HTMLElement {
 
         this.hass = test_hass;
     }
+    // ** END FOR TEST
 }
 
 window.customElements.define('canvas-gauge-card', CanvasGaugeCard);

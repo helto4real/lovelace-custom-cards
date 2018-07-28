@@ -21,13 +21,18 @@ Get-ChildItem "src" -directory |
         Get-ChildItem $_.FullName -Filter "$($_.Name).js" | 
             ForEach-Object {
                 $destfile = "$($destdir)\$($_.FullName.Substring($_.FullName.length - $_.Name.length))"
+                $copy = $True
                 (Get-Content $_.FullName) | 
                     ForEach-Object {
-                        $_.replace('@polymer/lit-element', 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module').
-                        replace('import "canvas-gauges";', 'import "./gauge.min.js";')
+                        if ($_.Trim().StartsWith('// ** START FOR TEST') -eq $True) {$copy = $False} #Used to remove test code
+                        if ($copy -eq $True) {
+                            $_.replace('@polymer/lit-element', 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module').
+                            replace('import "canvas-gauges";', 'import "./gauge.min.js";').
+                            replace("if (typeof process != typeof undefined && process.env.NODE_ENV == 'production') {return;}", '').
+                            replace('this.__initTests();', '')
+                        }
+                        if ($_.Trim().StartsWith('// ** END FOR TEST') -eq $True) {$copy = $True} #Used to remove test code
                     } | Set-Content $destfile -Force
             }
     }
 
-# The copy the card to my hass config
-Copy-Item 'dist\\custom-cards.js' 'Z:\\www\\custom_cards'

@@ -230,67 +230,8 @@ class CanvasGaugeCard extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-
-        // We check if we have set the environment var to 'development', if so we load testdata
-        // this environment is set in webpack.dev.js
-        if (typeof process != typeof undefined && process.env.NODE_ENV == 'development') {
-            this.__initTests();
-        }
     }
 
-    /** 
-     * Init testdata
-     * I use this in my development environment to make a very simple mock of config/hass objects 
-    */
-    __initTests() {
-        var test_config =
-        {
-            entity: 'sensor.temp',
-            name: 'Test',
-            card_height: 190,
-            card_width: undefined,
-            card_top: undefined,
-            card_left: undefined,
-            gauge: {}
-        };
-
-        test_config.gauge['type'] = 'radial-gauge';
-        test_config.gauge['title'] = 'Speed';
-        test_config.gauge['width'] = 300;
-        test_config.gauge['height'] = 300;
-        test_config.gauge['units'] = 'Km/h';
-        test_config.gauge['minValue'] = 0;
-        test_config.gauge['maxValue'] = 220;
-        test_config.gauge['startAngle'] = 90;
-        test_config.gauge['ticksAngle'] = 180;
-        test_config.gauge['valueBox'] = false;
-        test_config.gauge['majorTicks'] = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220];
-        test_config.gauge['minorTicks'] = 2;
-        test_config.gauge['strokeTicks'] = true;
-        test_config.gauge['highlights'] = [
-            {
-                "from": 160,
-                "to": 220,
-                "color": "rgba(200, 50, 50, .75)"
-            }
-        ];
-        test_config.gauge['colorPlate'] = '#fff';
-        test_config.gauge['borders'] = false;
-        test_config.gauge['needleType'] = 'arrow';
-        test_config.gauge['needleWidth'] = 2;
-        test_config.gauge['needleCircleSize'] = 7;
-        test_config.gauge['needleCircleOuter'] = true;
-        test_config.gauge['needleCircleInner'] = false;
-        test_config.gauge['animationDuration'] = 1500;
-        test_config.gauge['animationRule'] = 'linear';
-        test_config.gauge['value'] = '50';
-
-        var test_hass = { states: [] };
-        test_hass.states[test_config.entity] = { state: "15" };
-        this.setConfig(test_config);
-
-        this.hass = test_hass;
-    }
 }
 
 window.customElements.define('canvas-gauge-card', CanvasGaugeCard);

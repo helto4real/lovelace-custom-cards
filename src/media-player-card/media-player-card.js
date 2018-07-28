@@ -204,13 +204,13 @@ class MediaPlayerCard extends LitElement {
 
   constructor() {
     super();
-    // We check if we have set the environment var to 'development', if so we load testdata
-    // this environment is set in webpack.dev.js
-    if (typeof process != typeof undefined && process.env.NODE_ENV == 'development') {
-      this.__initTests();
-    } 
-
+    // ** START FOR TEST
+    if (typeof process != typeof undefined && process.env.NODE_ENV == 'production') {return;} 
+    this.__initTests();
+    // ** END FOR TEST
   }
+
+  // ** START FOR TEST
 
   /*
     I use this in my development environment to make a very simple mock of config/hass objects 
@@ -231,11 +231,9 @@ class MediaPlayerCard extends LitElement {
    // attr['entity_picture'] = 'img/media_playing.png'
     this.setConfig(test_config);
     this._hass = test_hass;
-
-  
-
-
   }
+
+  // ** END FOR TEST
 }
 
 window.customElements.define('media-player-card', MediaPlayerCard);
