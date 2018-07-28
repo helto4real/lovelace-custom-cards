@@ -156,11 +156,11 @@ class PictureStatusCard extends LitElement {
 
   constructor() {
     super();
-    // We check if we have set the environment var to production, if so we dont load testdata
-    // this environment is set in webpack.prod.js
-    if (typeof process != typeof undefined && process.env.NODE_ENV == 'production') { return; }
-
-    this.__initTests(); // Init testdata if we are i dev
+    // We check if we have set the environment var to 'development', if so we load testdata
+    // this environment is set in webpack.dev.js
+    if (typeof process != typeof undefined && process.env.NODE_ENV == 'development') {
+      this.__initTests();
+    } 
   }
 
   /*
@@ -169,7 +169,7 @@ class PictureStatusCard extends LitElement {
   __initTests() {
     this.state = 'Home';
     var test_config = { entity: 'device_tracker.any', image: 'test/img/tomas_presence_away.jpg', state_image: {} }; //, font_size: '1ev'
-    test_config.state_image['Home'] = '/dist/img/presence/tomas_presence_away.jpg'
+    test_config.state_image['Home'] = 'test/img/tomas_presence_away.jpg'
 
     var test_hass = { states: [] };
     test_hass.states[test_config.entity] = "Home";
