@@ -54,6 +54,8 @@ class CanvasGaugeCard extends HTMLElement {
      * Renders the card 
      */
     _render() {
+        const elemCardRoot = document.createElement('div');
+        elemCardRoot.id = 'cardroot';
         // Create the container element 
         const elemContainer = document.createElement('div');
         elemContainer.id = 'container';
@@ -64,6 +66,11 @@ class CanvasGaugeCard extends HTMLElement {
         // The styles
         const style = `
             <style>
+                #cardroot {
+                    width: ${elemContainer.width}px;
+                    height: calc(${elemContainer.height}px + ${this.config.shadow_bottom ? this.config.shadow_bottom : 0}px);
+                    position: relative;
+                }
                 #container {
                     width: ${elemContainer.width}px;
                     height: ${elemContainer.height}px;        
@@ -81,7 +88,7 @@ class CanvasGaugeCard extends HTMLElement {
                     width: 100%;
                     height: ${shadowHeight};
                     left: 0px;
-                    bottom: 0;
+                    bottom: 0px;
                     background: rgba(0, 0, 0, 0.5);;
                     position: absolute;
                     }
@@ -142,6 +149,8 @@ class CanvasGaugeCard extends HTMLElement {
         elemInnerContainer.appendChild(elemCanvas);
 
         elemContainer.appendChild(elemInnerContainer);
+        elemCardRoot.appendChild(elemContainer);
+        elemContainer.onclick = this._click.bind(this);
         if (this.config.name) {
             var elemShadow = document.createElement('div');
             elemShadow.className = 'shadow';
@@ -154,12 +163,10 @@ class CanvasGaugeCard extends HTMLElement {
             elemState.innerText = this.config.name;
 
             elemShadow.appendChild(elemState);
-            elemContainer.appendChild(elemShadow);
+            elemCardRoot.appendChild(elemShadow);
         }
 
-        elemContainer.onclick = this._click.bind(this);
-        this.shadowRoot.appendChild(elemContainer);
-
+        this.shadowRoot.appendChild(elemCardRoot);
         this._gauge = gauge;
     }
 

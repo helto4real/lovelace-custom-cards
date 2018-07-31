@@ -35,4 +35,4 @@ Get-ChildItem "src" -directory |
                     } | Set-Content $destfile -Force
             }
     }
-
+Copy-Item "dist\\custom-cards.js" "Z:\\www\\custom_cards" -Force
