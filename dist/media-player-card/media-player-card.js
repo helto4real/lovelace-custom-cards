@@ -37,6 +37,11 @@ class MediaPlayerCard extends LitElement {
   _render({ hass, config }) {
     return html`
         <style>
+            #card {
+              width: 88%;
+              height: 100%;
+              margin: auto;
+            }
             #container {
                 width: calc(561px/1.3);
                 height: calc(406px/1.3);;
@@ -106,14 +111,16 @@ class MediaPlayerCard extends LitElement {
                 transform: none;
             }
         </style>
-        <div id="container" on-click="${() => this._click()}">
-            <div id="movie-image">
-                <div id="media-info">
-                    <div id="entity"></div>
-                    <div id="media-title"></div>
-                    <div id="app-name">HBO Nordic</div>
-                </div>
-            </div>
+        <div id="card">
+          <div id="container" on-click="${() => this._click()}">
+              <div id="movie-image">
+                  <div id="media-info">
+                      <div id="entity"></div>
+                      <div id="media-title"></div>
+                      <div id="app-name">HBO Nordic</div>
+                  </div>
+              </div>
+          </div>
         </div>
         
         `;
