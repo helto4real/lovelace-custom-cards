@@ -193,6 +193,9 @@ class CanvasGaugeCard extends HTMLElement {
     }
 
     set hass(hass) {
+        if (!hass)
+            return;
+            
         const entityId = this.config.entity;
         this._state = hass.states[entityId].state;
         this._gauge['value'] = this._state;

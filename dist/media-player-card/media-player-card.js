@@ -189,6 +189,8 @@ class MediaPlayerCard extends LitElement {
   }
 
   set hass(hass) {
+    if (!hass)
+      return
     this._hass = hass;
 
     var entityState = this._hass.states[this._config.entity].state
