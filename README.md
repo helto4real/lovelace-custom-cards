@@ -1,6 +1,11 @@
 # Custom cards development
 I use this separate development environment to develop custom cards for lovelace. Please check my repository https://github.com/helto4real/hassio för my Home Assistant configuration
 
+
+If you like what I do and want to buy me a cup of coffee. It is always appreciated :)
+
+<a href="https://www.buymeacoffee.com/ij1qXRM6E" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 ## Usage
 All cards are built in the package dist/custom-cards.js, just copy that file and reference in the ui-lovelace.yaml. Please note that some cards require images to work. Check the folders and copy the images in that folder. 
 
