@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "serve": "polyserve",
-    "prod": "webpack --config webpack.prod.js && copy B:\\GIT\\hassio-custom-cards\\dist\\custom-cards.js Z:\\www\\custom_cards",
+    "prod": "webpack --config webpack.prod.js && copy D:\\GIT\\hassio-custom-cards\\dist\\custom-cards.js \\\\192.168.1.7\\config\\www\\custom_cards",
     "deploy": "webpack --config webpack.prod.js && powershell.exe .\\postbuild.ps1",
     "dev": "webpack --config webpack.dev.js",
     "start": "npm run-script dev && npm run-script serve"
