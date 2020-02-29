@@ -73,7 +73,11 @@ class CanvasGaugeCard extends HTMLElement {
                     display: block !important;
                     border-radius: 2px !important;
                     transition: all 0.30s ease-out !important;
-                    background-color: transparent !important;
+                    background-color: ${
+                      this.config.background_color
+                        ? this.config.background_color
+                        : "transparent"
+                    } !important;
                 }
                 #cardroot {
                     width: ${elemContainer.width}px;
